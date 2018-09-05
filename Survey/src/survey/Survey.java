@@ -149,7 +149,8 @@ public class Survey extends JFrame {
     private void submitButtonClicked()
     {
         boolean good = true;
-        String message = "Thank you for taking our survey!\n\nHere's the data you entered:\nName: ";
+        String msg = "Thank you for taking our survey!\n\nHere's the data you entered:\n";
+        String message = "Name: ";
         
         if(!firstNameField.getText().isEmpty())
         {
@@ -248,7 +249,7 @@ public class Survey extends JFrame {
     
     private String[] readCountries() throws IOException
     {
-        String dirString = "C:\\Users\\kmofp\\Documents\\NetBeansProjects\\Survey";
+        String dirString = "C:\\Users\\kmofp\\Documents\\NetBeansProjects\\Survey\\Survey";
                 Path dirPath = Paths.get(dirString);
       
                 if(Files.notExists(dirPath))
@@ -282,7 +283,7 @@ public class Survey extends JFrame {
     
     private void writeFile(String message) throws IOException
     {
-        String dirString = "C:\\Users\\kmofp\\Documents\\NetBeansProjects\\Survey";
+        String dirString = "C:\\Users\\kmofp\\Documents\\NetBeansProjects\\Survey\\Survey";
         
         Path dirPath = Paths.get(dirString); 
         
@@ -301,9 +302,11 @@ public class Survey extends JFrame {
         
       PrintWriter out = new PrintWriter(
                         new BufferedWriter(
-                        new FileWriter("SurveyResults.txt", true)));
-      
-      out.print(message);
+                        new FileWriter("surveyResults.csv", true)));
+      if(message != "Please finish entering all fields before submitting.")
+      {
+      out.print(message + "\n");
+      }
       
       out.close();
     }
