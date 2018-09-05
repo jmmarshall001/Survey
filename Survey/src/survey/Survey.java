@@ -249,7 +249,8 @@ public class Survey extends JFrame {
     
     private String[] readCountries() throws IOException
     {
-        String dirString = "C:\\Users\\kmofp\\Documents\\NetBeansProjects\\Survey\\Survey";
+        String home = System.getProperty("user.home");
+        String dirString = home + "\\Documents\\NetBeansProjects\\Survey\\Survey";
                 Path dirPath = Paths.get(dirString);
       
                 if(Files.notExists(dirPath))
@@ -283,7 +284,8 @@ public class Survey extends JFrame {
     
     private void writeFile(String message) throws IOException
     {
-        String dirString = "C:\\Users\\kmofp\\Documents\\NetBeansProjects\\Survey\\Survey";
+        String home = System.getProperty("user.home");
+        String dirString = home + "\\Documents\\NetBeansProjects\\Survey\\Survey";;
         
         Path dirPath = Paths.get(dirString); 
         
